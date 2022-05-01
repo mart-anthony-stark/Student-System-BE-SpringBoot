@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.martanthony.studentsystem.model.Student;
@@ -19,8 +21,8 @@ public class StudentController {
 	private StudentService studentService;
 	
 	@GetMapping("")
-	public List<Student> get(){
-		return studentService.getStudents();
+	public List<Student> get(@RequestParam(required=false) String name){
+		return studentService.getStudents(name);
 	}
 	
 	@PostMapping("/add")
