@@ -6,5 +6,6 @@ import com.martanthony.studentsystem.model.Student;
 
 public interface StudentService {
 	public Student saveStudent(Student student);
-	public List<Student> getStudents();
+	public List<Student> getStudents(String name);
+	public Student getOne(int id);
 }
