@@ -17,13 +17,18 @@ public class StudentServiceImplementation implements StudentService{
 	@Override
 	public Student saveStudent(Student student) {
 		// TODO Auto-generated method stub
-		studentRepository.save(student);
-		return null;
+		return studentRepository.save(student);
 	}
 
 	@Override
-	public List<Student> getStudents() {
+	public List<Student> getStudents(String name) {
 		// TODO Auto-generated method stub
-		return studentRepository.findAll();
+		return name == null ? studentRepository.findAll() : studentRepository.findByName(name);
+	}
+
+	@Override
+	public Student getOne(int id) {
+		// TODO Auto-generated method stub
+		return studentRepository.getById(id);
 	}
 }
