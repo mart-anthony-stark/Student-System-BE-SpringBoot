@@ -1,5 +1,6 @@
 package com.martanthony.studentsystem.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,20 @@ public class StudentServiceImplementation implements StudentService{
 	public Student getOne(int id) {
 		// TODO Auto-generated method stub
 		return studentRepository.getById(id);
+	}
+
+	@Override
+	public HashMap<String, Boolean> deleteOne(int id) {
+		// TODO Auto-generated method stub
+		studentRepository.deleteById(id);
+		HashMap<String, Boolean> res = new HashMap<>();
+		res.put("success", true);
+		return res;
+	}
+
+	@Override
+	public Student updateOne(Student student) {
+		// TODO Auto-generated method stub
+		return studentRepository.save(student);
 	}
 }
